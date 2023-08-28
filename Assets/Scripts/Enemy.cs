@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D ObstacleRigidbody;
 

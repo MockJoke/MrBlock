@@ -3643,7 +3643,8 @@ MonoBehaviour:
   PlayerRigidbody: {fileID: 1361844104}
   GameWonPanel: {fileID: 1381696723}
   GameLostPanel: {fileID: 936819728}
-  speed: 7
+  rbSpeed: 7
+  transformSpeed: 7
 --- !u!1 &1371275982
 GameObject:
   m_ObjectHideFlags: 0

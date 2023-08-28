@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject GameWonPanel;
     [SerializeField] private GameObject GameLostPanel;
 
-    private float speed;
+    [SerializeField] private float rbSpeed;
+    [SerializeField] private float transformSpeed;
+    
     private bool isGameOver = false; 
 
     void Update()
@@ -21,23 +23,53 @@ public class PlayerController : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+    }
 
+    private void FixedUpdate()
+    {
+        MoveUsingTransformPos();
+        //MoveUsingRigidbody();
+    }
+
+    private void MoveUsingTransformPos()
+    {
         if(Input.GetAxis("Horizontal") > 0)
         {
-            PlayerRigidbody.velocity = new Vector2(speed, 0f); 
+            transform.position += Vector3.right * Time.deltaTime * transformSpeed;
         }
         else if (Input.GetAxis("Horizontal") < 0)
         {
-            PlayerRigidbody.velocity = new Vector2(-speed, 0f);
+            transform.position += Vector3.left * Time.deltaTime * transformSpeed;
         }
 
         else if (Input.GetAxis("Vertical") > 0)
         {
-            PlayerRigidbody.velocity = new Vector2(0f, speed);
+            transform.position += Vector3.up * Time.deltaTime * transformSpeed;
         }
         else if (Input.GetAxis("Vertical") < 0)
         {
-            PlayerRigidbody.velocity = new Vector2(0f, -speed);
+            transform.position += Vector3.down * Time.deltaTime * transformSpeed;
+        }
+    }
+    
+    private void MoveUsingRigidbody()
+    {
+        if(Input.GetAxis("Horizontal") > 0)
+        {
+            PlayerRigidbody.velocity = new Vector2(rbSpeed, 0f); 
+        }
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            PlayerRigidbody.velocity = new Vector2(-rbSpeed, 0f);
+        }
+
+        else if (Input.GetAxis("Vertical") > 0)
+        {
+            PlayerRigidbody.velocity = new Vector2(0f, rbSpeed);
+        }
+        else if (Input.GetAxis("Vertical") < 0)
+        {
+            PlayerRigidbody.velocity = new Vector2(0f, -rbSpeed);
         }
 
         else if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
