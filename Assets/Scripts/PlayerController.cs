@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
     {
         if(isGameOver)
         {
-            Time.timeScale = 0;
+            SetTimeScale(true);
             return;
         }
         else
         {
-            Time.timeScale = 1;
+            SetTimeScale(false);
         }
     }
 
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private void MoveUsingRigidbody()
+    private void MoveUsingRigidbodyVelocity()
     {
         if(Input.GetAxis("Horizontal") > 0)
         {
@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #region Methods for collison detection
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Door"))
@@ -105,7 +106,13 @@ public class PlayerController : MonoBehaviour
             isGameOver = true;
         }
     }
+    #endregion
 
+    private void SetTimeScale(bool pause)
+    {
+        Time.timeScale = pause ? 0 : 1;
+    }
+    
     public void RestartGame()
     {
         isGameOver = false;         
