@@ -176,9 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4070945708a094d9846cef15c7b9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstacleRigidbody: {fileID: 2303754812720032821}
+  rb: {fileID: 2303754812720032821}
   speed: 5
   patrolSpots: []
+  minStopDistance: 0.2
 --- !u!50 &2303754812720032821
 Rigidbody2D:
   serializedVersion: 4
