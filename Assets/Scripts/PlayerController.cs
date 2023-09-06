@@ -81,17 +81,13 @@ public class PlayerController : MonoBehaviour
     #region Methods for collison detection
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Door"))
+        if(collision.CompareTag("Fruit"))
         {
             Debug.Log("Welcome!!"); 
 
             GameWonPanel.SetActive(true);
 
             isGameOver = true;
-        }
-        else if(collision.CompareTag("FakeDoor"))
-        {
-            Debug.Log("Bazinga!!");
         }
     }
 

@@ -1,6 +1,6 @@
 # MrBlock
 
-A basic 2D game where a player hsa to reach a target while avoiding simple enemies Unity
+A basic 2D game in Unity where a player has to reach a target while avoiding simple enemies
 
 ## Objectives:
 - basic 2D movement using transform & rigidbody2D
